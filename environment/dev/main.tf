@@ -21,9 +21,9 @@ module "pips" {
   public_ips = var.public_ips
 }
 
-# module "compute" {
-#   depends_on = [ module.pips ]
-#   source = "../../modules/azurerm_compute"
-#   vms = var.vms
-# }
+module "compute" {
+  depends_on = [ module.pips ]
+  source = "../../modules/azurerm_compute"
+  vms = var.vms
+}
 
