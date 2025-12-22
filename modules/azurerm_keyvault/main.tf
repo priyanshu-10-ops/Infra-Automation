@@ -1,5 +1,17 @@
 data "azurerm_client_config" "current" {}
 
+resource "azurerm_key_vault_secret" "vm_username" {
+  name         = "vm-username"
+  value        = "azureuser"
+  key_vault_id = azurerm_key_vault.kv.id
+}
+
+resource "azurerm_key_vault_secret" "vm_password" {
+  name         = "vm-password"
+  value        = "StrongPassword@123"
+  key_vault_id = azurerm_key_vault.kv.id
+}
+
 
 resource "azurerm_key_vault" "kv" {
   for_each = var.kvs

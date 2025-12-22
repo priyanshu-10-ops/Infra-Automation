@@ -20,3 +20,10 @@ module "pips" {
   source = "../../modules/azurerm_public_ip"
   public_ips = var.public_ips
 }
+
+# module "compute" {
+#   depends_on = [ module.pips ]
+#   source = "../../modules/azurerm_compute"
+#   vms = var.vms
+# }
+
