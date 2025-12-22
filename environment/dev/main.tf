@@ -15,3 +15,8 @@ module "keyvault" {
   kvs = var.kvs
 }
 
+module "pips" {
+  depends_on = [ module.keyvault ]
+  source = "../../modules/azurerm_public_ip"
+  public_ips = var.public_ips
+}

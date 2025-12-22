@@ -37,5 +37,19 @@ kvs = {
   }
 }
 
+public_ips = {
+  ip1 = {
+    name                = "dev-infra-pbip01"
+    resource_group_name = "dev-infra-rgs01"
+    location            = "EastUS"
+    allocation_method   = "Static"
+  }
+  ip2 = {
+    name                = "dev-infra-pbip02"
+    resource_group_name = "dev-infra-rgs01"
+    location            = "EastUS"
+    allocation_method   = "Static"
+  }
+}
 
 
