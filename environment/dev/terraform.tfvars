@@ -19,7 +19,7 @@ vnets = {
       }
       subnet2 = {
         name             = "backend-subnet"
-        address_prefixes = ["10.0.1.0/24"]
+        address_prefixes = ["10.0.2.0/24"]
       }
     }
 
@@ -28,5 +28,14 @@ vnets = {
     }
   }
 }
+
+kvs = {
+  kv1 = {
+    name                = "dev-infra-kv01"
+    location            = "EastUS"
+    resource_group_name = "dev-infra-rgs01"
+  }
+}
+
 
 

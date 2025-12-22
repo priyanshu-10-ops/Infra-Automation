@@ -9,4 +9,9 @@ module "vnet" {
   vnets = var.vnets
 }
 
+module "keyvault" {
+  depends_on = [ module.vnet ]
+  source = "../../modules/azurerm_keyvault"
+  kvs = var.kvs
+}
 
