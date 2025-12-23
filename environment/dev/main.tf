@@ -27,3 +27,24 @@ module "compute" {
   vms = var.vms
 }
 
+// First comes server, and then the databse
+
+module "sql_server" {
+  source = "../../modules/azurerm_sql_server"
+  adminusername = "infraadmin"
+  adminpassword = "infrap@$$wOrd"
+  rg_name = "infra-dev-rgs01" 
+  sql_servername = "infra-sql-server"
+  sql_serverlocation =  "EastUS"
+  tags = {}
+}
+
+module "sql_db" {
+  depends_on = [ module.sql_server ]
+  source = "../../modules/azurerm_sql_database"
+  max_sizegb = "3"
+  sql_dbname = "infra-sql-db"
+  sql_serverid = module.sql_server.id
+  tags = {}
+
+}
