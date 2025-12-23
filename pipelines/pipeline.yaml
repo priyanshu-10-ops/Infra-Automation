@@ -3,6 +3,12 @@ trigger:
 pool:
   name: Gravitas01
 
+# Stages -> Jobs -> Steps ->Task
+# Stages
+#  Jobs
+#   Steps
+#    Tasks
+
 stages:
 - stage: Terraform
   displayName: Terraform Stage
