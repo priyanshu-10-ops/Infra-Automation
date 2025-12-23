@@ -3,7 +3,7 @@ data "azurerm_client_config" "current" {}
 resource "azurerm_key_vault_secret" "vm_username" {
   name         = "vm-username"
   value        = "azureuser"
-  key_vault_id = azurerm_key_vault.kv.id
+  key_vault_id = azurerm_key_vault.kv[each.key].id
 }
 
 resource "azurerm_key_vault_secret" "vm_password" {
